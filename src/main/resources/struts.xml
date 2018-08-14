@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 禁止动态方法调用   -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <!-- 开启开发模式   修改配置不重启 -->
+    <constant name="struts.devMode" value="true" />
+   
+   
+   <!--   
+    <package name="fix" namespace="/" extends="struts-default">
+    
+        <default-action-ref name="defaut"/>
+        <action name="defaut" >
+            <result >/404.jsp</result>
+        </action>
+        
+        <action name="login" class="test.struts.Login">
+            <result name="success">/hello.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="user*" class="test.struts.User" method="{1}">
+            <result name="login">/page/{1}.jsp</result>
+            <result name="regist">/page/{1}.jsp</result>
+        </action>
+        
+        <action name="hello" class="test.struts.Hello">
+            <result name="success">/hello.jsp</result>
+        </action>
+    </package>
+  -->
+     <include file="struts1.xml"/>
+
+</struts>

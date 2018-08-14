@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="fix" namespace="/" extends="struts-default">
+    
+    <!-- 拦截器 -->
+    <interceptors>
+        <interceptor name="TestTime" class="inteceptor.MyIntoceptor"></interceptor>    
+        <interceptor name="MyLogin" class="inteceptor.LoginIteceptor"></interceptor>
+       <!-- 拦截器站 -->
+        <interceptor-stack name="markoche">
+        <interceptor-ref name="defaultStack"></interceptor-ref>
+        <interceptor-ref name="TestTime"></interceptor-ref>
+        <interceptor-ref name="MyLogin"></interceptor-ref>
+        </interceptor-stack>
+    </interceptors>
+    
+     <global-results>
+         <result name="login">/login.jsp</result>
+    </global-results>
+   
+        
+        <action name="defaut" >
+            <result >/404.jsp</result>
+        </action>
+        
+        <action name="login" class="test.struts.UserAction" method="login">
+
+             <result name="success" type="chain">hello</result>
+        </action>
+        <action name="hello" class="test.struts.UserAction" method="github" >
+            <result >/hello.jsp</result>
+            <interceptor-ref name="markoche"></interceptor-ref>
+        </action>
+        <!-- 
+        <action name="user*" class="test.struts.User" method="{1}">
+            
+            <result name="login">/page/{1}.jsp</result>
+            <result name="regist">/page/{1}.jsp</result>
+            <interceptor-ref name="markoche"/>
+
+        </action>
+         -->
+
+ 
+        
+    </package>
+ 
+
+</struts>
